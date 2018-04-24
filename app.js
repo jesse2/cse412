@@ -3,8 +3,8 @@ var app = express();
 const {Client}= require('pg');
 
 const client= new Client({
-    user: 'cse412',
-  host: '45.55.18.197',
+    user: '',
+  host: '',
   database: 'movies',
   password: 'database1',
   port: 5432
