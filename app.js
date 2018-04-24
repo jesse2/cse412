@@ -11,15 +11,15 @@ const client= new Client({
 });
 
 app.get('/', function(req,res){
-    //console.log("connecting..");
     client.connect();
-    //console.log("connected");
 
+    //test connection to database and make sure we can query data. just testing genres database for now
     client.query('SELECT * FROM genres', (err,resp)=>{
         if(err){
-            //console.log("Error: "+err);
+            console.log("Error: "+err);
+            res.send(err);
         }else{
-            //console.log(resp.rows);
+            console.log(resp.rows);
             res.send(resp.rows);
         }
         client.end();
@@ -27,4 +27,4 @@ app.get('/', function(req,res){
 });
 
 app.listen(3060, 'localhost');
-console.log("Now listening on port 3000");
+console.log("Now listening on port 3060");
