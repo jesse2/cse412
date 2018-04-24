@@ -3,25 +3,28 @@ var app = express();
 const {Client}= require('pg');
 
 const client= new Client({
-    user: '',
-  host: '',
-  database: '',
-  password: '',
+    user: 'cse412',
+  host: '45.55.18.197',
+  database: 'movies',
+  password: 'database1',
   port: 5432
 });
 
 app.get('/', function(req,res){
+    //console.log("connecting..");
     client.connect();
-    client.query('select * from deleteme', (err,resp)=>{
+    //console.log("connected");
+
+    client.query('SELECT * FROM genres', (err,resp)=>{
         if(err){
-            console.log("Error: "+err);
+            //console.log("Error: "+err);
         }else{
-            console.log(resp.rows);
+            //console.log(resp.rows);
             res.send(resp.rows);
         }
         client.end();
     });
 });
 
-app.listen(3000, 'localhost');
+app.listen(3060, 'localhost');
 console.log("Now listening on port 3000");
