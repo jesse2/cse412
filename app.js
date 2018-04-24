@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 const {Client}= require('pg');
 
+// you can get user,password,and host(IP) from discord chat
 const client= new Client({
     user: '',
     password: '',
