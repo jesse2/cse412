@@ -13,6 +13,13 @@ const client= new Client({
 app.get('/', function(req,res){
     client.connect();
 
+    //variables needed for assignment queries, assigning temp values for now (not in use yet)
+    var minrating=2;
+    var maxrating=4;
+    var movietitle='Pocahontas';
+    var tag = '';
+
+
     //test connection to database and make sure we can query data. just testing genres database for now
     client.query('SELECT * FROM genres', (err,resp)=>{
         if(err){
